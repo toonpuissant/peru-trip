@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>De Puissant Peru Tour 2026</title>
+  <meta name="description" content="24 dagen Zuid-Peru met de familie Puissant — zomer 2026" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Extra stijl enkel voor de homepage tijdlijn -->
+  <style>
+    /* Tijdlijn op de homepage */
+    .tijdlijn {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+      position: relative;
+    }
+    /* Verticale lijn */
+    .tijdlijn::before {
+      content: '';
+      position: absolute;
+      left: 48px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--kleur-accent), var(--kleur-lijn));
+    }
+    .tijdlijn-item {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    /* Cirkel op de tijdlijn */
+    .tijdlijn-cirkel {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--kleur-wit);
+      border: 2px solid var(--kleur-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 6px var(--kleur-achtergrond);
+      z-index: 1;
+    }
+    .tijdlijn-kaart {
+      flex: 1;
+      background: var(--kleur-wit);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      box-shadow: var(--schaduw);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-top: -4px;
+    }
+    .tijdlijn-kaart:hover {
+      transform: translateX(6px);
+      box-shadow: var(--schaduw-hover);
+    }
+    .tijdlijn-kaart .datum {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--kleur-accent);
+      margin-bottom: 4px;
+    }
+    .tijdlijn-kaart h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--kleur-tekst);
+      margin-bottom: 6px;
+    }
+    .tijdlijn-kaart p {
+      font-size: 0.85rem;
+      color: var(--kleur-subtitel);
+      line-height: 1.6;
+    }
+    /* Groepsbadge */
+    .groeps-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    .groeps-badge.drie {
+      background: rgba(193, 127, 58, 0.10);
+      color: #8a5a22;
+    }
+    .groeps-badge.zes {
+      background: rgba(46, 92, 75, 0.10);
+      color: #1f5c46;
+    }
+
+    /* Stats sectie */
+    .stats-sectie {
+      background: var(--kleur-tekst);
+      color: white;
+      padding: 72px 24px;
+      margin-bottom: 0;
+    }
+    .stats-grid {
+      max-width: var(--max-breedte);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+    .stat-item .getal {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--kleur-accent);
+      line-height: 1;
+      display: block;
+    }
+    .stat-item .omschrijving {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 8px;
+    }
+
+    /* Wie gaat er mee sectie */
+    .personen-sectie {
+      max-width: var(--max-breedte);
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .personen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .persoon-kaart {
+      background: var(--kleur-wit);
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: var(--schaduw);
+    }
+    .persoon-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--kleur-accent), var(--kleur-accent-donker));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 12px;
+    }
+    .persoon-naam {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--kleur-tekst);
+      margin-bottom: 4px;
+    }
+    .persoon-info {
+      font-size: 0.78rem;
+      color: var(--kleur-subtitel);
+      line-height: 1.5;
+    }
+    .persoon-kaart.later {
+      border: 2px dashed var(--kleur-lijn);
+      box-shadow: none;
+      opacity: 0.75;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATIEBALK ===== -->
+  <nav class="hoofdnav">
+    <div class="nav-binnen">
+      <a href="index.html" class="nav-logo">Puissant <span>Peru</span> 2026</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Overzicht</a></li>
+        <li><a href="huaraz.html">Huaraz</a></li>
+        <li><a href="paracas-ica.html">Paracas & Ica</a></li>
+        <li><a href="arequipa.html">Arequipa</a></li>
+        <li><a href="cusipata.html">Cusipata</a></li>
+        <li><a href="cusco.html">Cusco</a></li>
+        <li><a href="machu-picchu.html">Machu Picchu</a></li>
+      </ul>
+      <button class="nav-hamburger" aria-label="Menu openen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-mobiel">
+      <a href="index.html">🏠 Overzicht</a>
+      <a href="huaraz.html">🏔️ Huaraz</a>
+      <a href="paracas-ica.html">🌊 Paracas & Ica</a>
+      <a href="arequipa.html">🦅 Arequipa</a>
+      <a href="cusipata.html">🌈 Cusipata</a>
+      <a href="cusco.html">🏛️ Cusco</a>
+      <a href="machu-picchu.html">✨ Machu Picchu</a>
+    </nav>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-foto" style="background-image: url('https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=1800&q=85');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-inhoud">
+      <span class="hero-label">24 juli – 16 augustus 2026</span>
+      <h1 class="hero-titel">De Puissant<br>Peru Tour</h1>
+      <p class="hero-ondertitel">Zes avonturiers. Vierentwintig dagen. Eén onvergetelijke reis door het hart van Zuid-Peru.</p>
+      <a href="#reisverhaal" class="hero-scroll">
+        Ontdek de reis
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== INTRO ===== -->
+  <section class="intro-sectie fade-in" id="reisverhaal">
+    <span class="sectie-label">Het avontuur van ons leven</span>
+    <div class="divider"></div>
+    <h2>Van de besneeuwde Andes tot het Wereldwonder van de Inca's</h2>
+    <p>
+      Vicky, Toon en Marilou stappen op 24 juli als eerste het vliegtuig in. Na indrukwekkende trektochten
+      in de Cordillera Huayhuash sluiten Amelie, Rik en Keanu aan — en is <strong>de hele bende compleet</strong>
+      voor de rest van dit grootse avontuur door Peru.
+    </p>
+  </section>
+
+  <!-- ===== STATISTIEKEN ===== -->
+  <section class="stats-sectie">
+    <div class="stats-grid">
+      <div class="stat-item fade-in">
+        <span class="getal">24</span>
+        <p class="omschrijving">Dagen on the road</p>
+      </div>
+      <div class="stat-item fade-in">
+        <span class="getal">6</span>
+        <p class="omschrijving">Avonturiers</p>
+      </div>
+      <div class="stat-item fade-in">
+        <span class="getal">7</span>
+        <p class="omschrijving">Reisbestemmingen</p>
+      </div>
+      <div class="stat-item fade-in">
+        <span class="getal">4</span>
+        <p class="omschrijving">Meerdaagse trektochten</p>
+      </div>
+      <div class="stat-item fade-in">
+        <span class="getal">1</span>
+        <p class="omschrijving">Wereldwonder bezocht</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WIE GAAT ER MEE ===== -->
+  <section class="personen-sectie">
+    <div class="sectie-header" style="padding: 0 0 0 0;">
+      <span class="label">Het reisgezelschap</span>
+      <h2>Wie gaat er mee?</h2>
+    </div>
+    <div class="personen-grid">
+      <div class="persoon-kaart fade-in">
+        <div class="persoon-avatar">👩</div>
+        <div class="persoon-naam">Vicky</div>
+        <div class="persoon-info">Mama<br>Vanaf dag 1</div>
+      </div>
+      <div class="persoon-kaart fade-in">
+        <div class="persoon-avatar">👨</div>
+        <div class="persoon-naam">Toon</div>
+        <div class="persoon-info">Papa<br>Vanaf dag 1</div>
+      </div>
+      <div class="persoon-kaart fade-in">
+        <div class="persoon-avatar">👧</div>
+        <div class="persoon-naam">Marilou</div>
+        <div class="persoon-info">Dochter<br>Vanaf dag 1</div>
+      </div>
+      <div class="persoon-kaart later fade-in">
+        <div class="persoon-avatar">🧑</div>
+        <div class="persoon-naam">Amelie</div>
+        <div class="persoon-info">Dochter (21)<br>Vanaf dag 9 · Lima</div>
+      </div>
+      <div class="persoon-kaart later fade-in">
+        <div class="persoon-avatar">👦</div>
+        <div class="persoon-naam">Rik</div>
+        <div class="persoon-info">Zoon (26)<br>Vanaf dag 9 · Lima</div>
+      </div>
+      <div class="persoon-kaart later fade-in">
+        <div class="persoon-avatar">🧑</div>
+        <div class="persoon-naam">Keanu</div>
+        <div class="persoon-info">Zoon (29)<br>Vanaf dag 9 · Lima</div>
+      </div>
+    </div>
+    <p style="margin-top:20px;font-size:0.85rem;color:var(--kleur-subtitel);text-align:center;">
+      ✦ De gestippelde kaartjes sluiten aan op dag 9 in Lima — dan is de hele bende compleet!
+    </p>
+  </section>
+
+  <!-- ===== TIJDLIJN OVERZICHT ===== -->
+  <section>
+    <div class="sectie-header fade-in">
+      <span class="label">Dag voor dag</span>
+      <h2>Het reisprogramma</h2>
+    </div>
+    <div class="tijdlijn">
+
+      <div class="tijdlijn-item fade-in">
+        <div class="tijdlijn-cirkel">✈️</div>
+        <a href="huaraz.html" class="tijdlijn-kaart">
+          <div class="datum">Dag 1–9 · 24 juli – 1 augustus</div>
+          <h3>Lima & Huaraz — Huayhuash Trek</h3>
+          <p>Aankomst in Lima, acclimatisatie bij spectaculaire bergmeren, en een vierdaagse trektocht door de Cordillera Huayhuash.</p>
+          <span class="groeps-badge drie">👥 Vicky, Toon & Marilou</span>
+        </a>
+      </div>
+
+      <div class="tijdlijn-item fade-in">
+        <div class="tijdlijn-cirkel">🎉</div>
+        <div class="tijdlijn-kaart" style="background:linear-gradient(135deg,#f0f7f4,#e8f5ef);cursor:default;">
+          <div class="datum">Dag 9 · 1 augustus</div>
+          <h3>De hele bende is compleet! 🎊</h3>
+          <p>Amelie, Rik en Keanu landen in Lima. Vanaf nu reizen alle zes samen verder!</p>
+          <span class="groeps-badge zes">👨‍👩‍👧‍👦 Alle zes samen!</span>
+        </div>
+      </div>
+
+      <div class="tijdlijn-item fade-in">
+        <div class="tijdlijn-cirkel">🦭</div>
+        <a href="paracas-ica.html" class="tijdlijn-kaart">
+          <div class="datum">Dag 10–11 · 2–3 augustus</div>
+          <h3>Paracas & Huacachina</h3>
+          <p>Pinguïns en zeeleeuwen op de Islas Ballestas, snorkelen in het Paracas Reservaat, en de magische zandduin-oase van Huacachina.</p>
+          <span class="groeps-badge zes">👨‍👩‍👧‍👦 Alle zes</span>
+        </a>
+      </div>
+
+      <div class="tijdlijn-item fade-in">
+        <div class="tijdlijn-cirkel">🦅</div>
+        <a href="arequipa.html" class="tijdlijn-kaart">
+          <div class="datum">Dag 12–14 · 4–6 augustus</div>
+          <h3>Arequipa & Colca Canyon</h3>
+          <p>Werelderfgoedstad Arequipa, de condor van dichtbij, en een 2-daagse privétrektocht door één van de diepste kloven ter wereld.</p>
+          <span class="groeps-badge zes">👨‍👩‍👧‍👦 Alle zes</span>
+        </a>
+      </div>
+
+      <div class="tijdlijn-item fade-in">
+        <div class="tijdlijn-cirkel">🌈</div>
+        <a href="cusipata.html" class="tijdlijn-kaart">
+          <div class="datum">Dag 15–16 · 7–8 augustus</div>
+          <h3>Pallay Punchu & Rafting</h3>
+          <p>De alternatieve regenboogberg Pallay Punchu (4.791m), en wildwaterrafting op de Vilcanota rivier bij Cusipata.</p>
+          <span class="groeps-badge zes">👨‍👩‍👧‍👦 Alle zes</span>
+        </a>
+      </div>
+
+      <div class="tijdlijn-item fade-in">
+        <div class="tijdlijn-cirkel">🏛️</div>
+        <a href="cusco.html" class="tijdlijn-kaart">
+          <div class="datum">Dag 17–18 · 9–10 augustus</div>
+          <h3>Cusco & de Heilige Vallei</h3>
+          <p>De Inca-hoofdstad, Sacsayhuaman, de Heilige Vallei met Salineras, Moray, Ollantaytambo en Pisac.</p>
+          <span class="groeps-badge zes">👨‍👩‍👧‍👦 Alle zes</span>
+        </a>
+      </div>
+
+      <div class="tijdlijn-item fade-in">
+        <div class="tijdlijn-cirkel">✨</div>
+        <a href="machu-picchu.html" class="tijdlijn-kaart">
+          <div class="datum">Dag 19–22 · 11–14 augustus</div>
+          <h3>Lares Trek → Machu Picchu</h3>
+          <p>De vierdaagse Lares-Inca Trail trektocht, bekroond met het onvergetelijke bezoek aan het Wereldwonder Machu Picchu en de beklimming van Huayna Picchu.</p>
+          <span class="groeps-badge zes">👨‍👩‍👧‍👦 Alle zes</span>
+        </a>
+      </div>
+
+      <div class="tijdlijn-item fade-in">
+        <div class="tijdlijn-cirkel">🏠</div>
+        <div class="tijdlijn-kaart" style="cursor:default;">
+          <div class="datum">Dag 23–24 · 15–16 augustus</div>
+          <h3>Terug naar huis</h3>
+          <p>Cusco → Lima → Amsterdam (KLM, vertrek 17:30 uur). Einde van een onvergetelijk avontuur!</p>
+          <span class="groeps-badge zes">👨‍👩‍👧‍👦 Alle zes</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>Gemaakt met ❤️ voor de <span>Puissant</span> familie · Peru 2026 · Georganiseerd door <a href="https://www.rondreizenperu.com" target="_blank" style="color:var(--kleur-accent);text-decoration:none;">Naturandes Travel</a></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
