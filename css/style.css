@@ -4,22 +4,24 @@
    veel witruimte, vloeiende animaties, sticky navigatie
    ============================================================ */
 
-/* --- Google Fonts import --- */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+/* --- Google Fonts import ---
+   Inter is de dichtstbijzijnde open-source equivalent van Apple's SF Pro.
+   Zelfde neutrale geometrie, zelfde optische verhoudingen.              */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 /* --- CSS variabelen (kleurenpalet & spacing) --- */
 :root {
-  --kleur-achtergrond: #f5f0eb;   /* Warm gebroken wit */
+  --kleur-achtergrond: #f2f2f7;   /* Apple systeemgrijs — exact iOS/macOS kleur */
   --kleur-wit: #ffffff;
-  --kleur-tekst: #1a1410;         /* Bijna zwart, warm tint */
-  --kleur-subtitel: #6b5c4e;      /* Warm grijs-bruin */
+  --kleur-tekst: #1d1d1f;         /* Apple's eigen zwart — letterlijk van apple.com */
+  --kleur-subtitel: #6e6e73;      /* Apple secondary label kleur */
   --kleur-accent: #c17f3a;        /* Peruaans goud/terracotta */
   --kleur-accent-donker: #8a5a22;
-  --kleur-lijn: #e0d5c8;
-  --kleur-nav-bg: rgba(245, 240, 235, 0.92);
+  --kleur-lijn: #d2d2d7;          /* Apple separator kleur */
+  --kleur-nav-bg: rgba(242, 242, 247, 0.85);
 
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --radius: 16px;
   --schaduw: 0 4px 32px rgba(26, 20, 16, 0.10);
@@ -200,10 +202,10 @@ nav.hoofdnav {
 .hero-titel {
   font-family: var(--font-display);
   font-size: clamp(2.8rem, 7vw, 5.5rem);
-  font-weight: 900;
+  font-weight: 800;
   color: #fff;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
   margin-bottom: 20px;
   max-width: 800px;
 }
@@ -259,8 +261,8 @@ nav.hoofdnav {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   margin-bottom: 20px;
   color: var(--kleur-tekst);
 }
@@ -421,7 +423,7 @@ nav.hoofdnav {
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--kleur-tekst);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   margin-bottom: 3px;
 }
 
