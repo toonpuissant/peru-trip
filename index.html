@@ -178,6 +178,45 @@
       box-shadow: none;
       opacity: 0.75;
     }
+
+    /*
+      PPP LOGO BLOK — het vierkante titelelement in de hero
+      Elke regel heeft een andere font-size zodat ze even breed worden.
+      We gebruiken letter-spacing en font-weight ook als hulpmiddel.
+      De verhoudingen zijn handmatig afgestemd:
+        PUISSANT  = 8 tekens → font-size: 4.60vw  (iets groter dan Programma)
+        PERU      = 4 tekens → font-size: 9.35vw  (veel groter, maar zelfde breedte)
+        PROGRAMMA = 9 tekens → font-size: 4.10vw  (referentie, het langste woord)
+    */
+    .ppp-blok {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 28px;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+    }
+    .ppp-blok span {
+      display: block;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-weight: 800;
+      color: #ffffff;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    /* PUISSANT — 8 letters, iets groter dan Programma */
+    .ppp-puissant  { font-size: clamp(2.1rem, 4.60vw, 5.2rem); }
+    /* PERU — 4 letters, veel groter zodat het even breed is */
+    .ppp-peru      { font-size: clamp(4.0rem, 9.35vw, 10.5rem); font-weight: 900; }
+    /* PROGRAMMA — 9 letters, het smalste lettertype = referentie */
+    .ppp-programma { font-size: clamp(1.85rem, 4.10vw, 4.6rem); font-weight: 600; letter-spacing: 0.01em; }
+
+    @media (max-width: 768px) {
+      /* Op mobiel overschakelen naar vw-gebaseerde sizing */
+      .ppp-puissant  { font-size: 8.8vw; }
+      .ppp-peru      { font-size: 18vw; }
+      .ppp-programma { font-size: 7.85vw; }
+    }
   </style>
 </head>
 <body>
@@ -212,11 +251,30 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero">
-    <div class="hero-foto" style="background-image: url('https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=1800&q=85');"></div>
+    <!-- Cusco foto als hero achtergrond -->
+    <div class="hero-foto" style="background-image: url('https://images.unsplash.com/photo-1526392060635-9d6019884377?w=1800&q=85');"></div>
     <div class="hero-overlay"></div>
     <div class="hero-inhoud">
       <span class="hero-label">24 juli – 16 augustus 2026</span>
-      <h1 class="hero-titel">De Puissant<br>Peru Tour</h1>
+
+      <!--
+        PPP LOGO BLOK
+        Drie regels waarbij elk woord een andere fontgrootte krijgt
+        zodat alle regels exact even breed zijn → vierkant blok effect.
+        Techniek: we meten de breedte van het langste woord ("Programma")
+        en schalen "Puissant" en "Peru" via font-size zodat ze even breed zijn.
+        "Programma" = 9 letters → referentie
+        "Puissant"  = 8 letters → iets groter lettertype om even breed te zijn
+        "Peru"      = 4 letters → veel groter lettertype om even breed te zijn
+        We gebruiken display:block + width:fit-content om de breedte op te meten,
+        en font-size in vw-eenheden om het responsief te houden.
+      -->
+      <div class="ppp-blok">
+        <span class="ppp-puissant">PUISSANT</span>
+        <span class="ppp-peru">PERU</span>
+        <span class="ppp-programma">PROGRAMMA</span>
+      </div>
+
       <p class="hero-ondertitel">Zes avonturiers. Vierentwintig dagen. Eén onvergetelijke reis door het hart van Zuid-Peru.</p>
       <a href="#reisverhaal" class="hero-scroll">
         Ontdek de reis
@@ -285,7 +343,7 @@
       <div class="persoon-kaart fade-in">
         <div class="persoon-avatar">👧</div>
         <div class="persoon-naam">Marilou</div>
-        <div class="persoon-info">Dochter<br>Vanaf dag 1</div>
+        <div class="persoon-info">Dochter (23)<br>Vanaf dag 1</div>
       </div>
       <div class="persoon-kaart later fade-in">
         <div class="persoon-avatar">🧑</div>
@@ -295,12 +353,12 @@
       <div class="persoon-kaart later fade-in">
         <div class="persoon-avatar">👦</div>
         <div class="persoon-naam">Rik</div>
-        <div class="persoon-info">Zoon (26)<br>Vanaf dag 9 · Lima</div>
+        <div class="persoon-info">Schoonzoon (26)<br>Vanaf dag 9 · Lima</div>
       </div>
       <div class="persoon-kaart later fade-in">
         <div class="persoon-avatar">🧑</div>
         <div class="persoon-naam">Keanu</div>
-        <div class="persoon-info">Zoon (29)<br>Vanaf dag 9 · Lima</div>
+        <div class="persoon-info">Schoonzoon (29)<br>Vanaf dag 9 · Lima</div>
       </div>
     </div>
     <p style="margin-top:20px;font-size:0.85rem;color:var(--kleur-subtitel);text-align:center;">
