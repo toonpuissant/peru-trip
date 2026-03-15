@@ -180,6 +180,11 @@ nav.hoofdnav {
   margin: 0 auto;
   padding: 0 24px 72px;
   width: 100%;
+  /* Centre all hero content so subtitle + scroll align with PPP block */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 /* Klein label boven de titel */
@@ -190,9 +195,10 @@ nav.hoofdnav {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--kleur-accent);
-  background: rgba(193, 127, 58, 0.15);
-  border: 1px solid rgba(193, 127, 58, 0.35);
+  /* Dark opaque background ensures readability on any photo */
+  color: #fff;
+  background: rgba(20, 14, 10, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   padding: 5px 14px;
   margin-bottom: 20px;

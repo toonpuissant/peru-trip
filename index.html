@@ -139,9 +139,17 @@
     }
     .personen-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      /* Exactly 3 columns → 2 rows of 3 (Vicky/Toon/Marilou + Amelie/Rik/Keanu) */
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       margin-top: 40px;
+    }
+    @media (max-width: 600px) {
+      /* On small screens drop to 2 columns */
+      .personen-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 380px) {
+      .personen-grid { grid-template-columns: 1fr; }
     }
     .persoon-kaart {
       background: var(--kleur-wit);
@@ -218,6 +226,39 @@
       .ppp-programma { font-size: 7.85vw; }
     }
   </style>
+  <script>
+    // 2026-03-15: Scale PROGRAMMA horizontally so it exactly matches the width
+    // of PERU/PUISSANT, forming a perfect rectangular block in the hero.
+    // scaleX is preferred over letter-spacing because it stays pixel-accurate
+    // at every viewport size without recalculating character metrics.
+    function alignPppBlok() {
+      const puissant  = document.querySelector('.ppp-puissant');
+      const peru      = document.querySelector('.ppp-peru');
+      const programma = document.querySelector('.ppp-programma');
+      if (!puissant || !peru || !programma) return;
+
+      // Reset so we measure natural widths
+      programma.style.transform      = '';
+      programma.style.transformOrigin = '';
+
+      const targetWidth   = Math.max(peru.getBoundingClientRect().width,
+                                     puissant.getBoundingClientRect().width);
+      const programmaWidth = programma.getBoundingClientRect().width;
+
+      if (programmaWidth > 0 && targetWidth > 0) {
+        programma.style.transform      = `scaleX(${targetWidth / programmaWidth})`;
+        programma.style.transformOrigin = 'left center';
+      }
+    }
+
+    // Run after fonts are loaded (avoids measuring before Inter is applied)
+    if (document.fonts) {
+      document.fonts.ready.then(alignPppBlok);
+    } else {
+      window.addEventListener('load', alignPppBlok);
+    }
+    window.addEventListener('resize', alignPppBlok);
+  </script>
 </head>
 <body>
 

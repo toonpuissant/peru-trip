@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(curl -s -o /dev/null -w \"acolpachatambo: %{http_code}\\\\n\" -L \"https://www.acolpachatambo.com\" --max-time 10)",
+      "Bash(curl -s -L \"https://unsplash.com/photos/black-bird-flying-over-gray-mountain-zefN7DVCR2M\" --max-time 15)",
+      "Bash(curl -s -L \"https://unsplash.com/photos/brown-and-white-alpaca-4BDKT0el_iU\" --max-time 15)",
+      "Bash(curl -s -L \"https://unsplash.com/photos/pink-flamingos-on-water-during-daytime-5JB_c7BAdvM\" --max-time 15)",
+      "Bash(curl -s -L \"https://unsplash.com/photos/a-large-group-of-sea-lions-resting-on-the-beach-QyOJaUM66E4\" --max-time 15)",
+      "Bash(curl -s -L \"https://unsplash.com/photos/zip-line-in-front-mountain-iBKQ9JVqrJw\" --max-time 15)",
+      "Bash(curl -s -L \"https://unsplash.com/photos/UL2zpfFkcWU\" --max-time 15)",
+      "Bash(curl -s -L \"https://unsplash.com/photos/a-couple-of-people-walking-down-a-dirt-road-4vvcls92EAY\" --max-time 15)",
+      "Bash(curl -s -L \"https://unsplash.com/photos/mountains-and-their-reflection-in-a-peaceful-lake-ZYY2lNM-J1Y\" --max-time 15)",
+      "Bash(curl -s -o /dev/null -w \"1505697594819-8a88ac9de632: %{http_code}\\\\n\" \"https://images.unsplash.com/photo-1505697594819-8a88ac9de632?w=600&q=80\" --max-time 10)",
+      "Bash(curl -s -L \"https://unsplash.com/photos/male-backpacker-dressed-in-gray-filters-drinking-water-from-a-turquoise-mountain-lake-in-the-cordillera-blanca-in-the-andes-in-peru-zkHUxvdsqfY\" --max-time 15)"
+    ]
+  }
+}
