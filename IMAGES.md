@@ -37,25 +37,25 @@ images/
 
 ## huaraz.html _(Dag 1–9 · Lima & Huaraz)_
 
-| ID         | Sectie                                | Wat is er nodig                                     | Jouw foto                                                                                      |
-| ---------- | ------------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `hua-hero` | Hero achtergrond                      | Cordillera Huayhuash of Cordillera Blanca panorama  | https://hiking-trails.com/wp-content/smush-webp/2024/08/Huayhuash-Trek-Peru-Mountains.jpg.webp |
-| `hua-d1-1` | Dag 1 · Aankomst Lima (foto 1)        | Lima kust / Miraflores wijk / kliffen               | https://www.naarperu.nl/wp-content/uploads/2019/07/banner-lima-miraflores.jpg                  |
-| `hua-d1-2` | Dag 1 · Aankomst Lima (foto 2)        | Lima stadsgezicht of Parque Kennedy                 | https://www.untamedtravelling.com/wp-content/uploads/2017/10/Lima-Unsplash-scaled.jpg          |
-| `hua-d2-1` | Dag 2 · Bus Lima → Huaraz (foto 1)    | Andeslandschap vanuit busraam / snelweg door bergen |                                                                                                |
-| `hua-d2-2` | Dag 2 · Bus Lima → Huaraz (foto 2)    | Cordillera Blanca toppen met sneeuw                 |                                                                                                |
-| `hua-d3-1` | Dag 3 · Laguna Wilcacocha (foto 1)    | Turquoise bergmeer met bergtoppen op achtergrond    |                                                                                                |
-| `hua-d3-2` | Dag 3 · Laguna Wilcacocha (foto 2)    | Uitzicht over vallei / wandelpad                    |                                                                                                |
-| `hua-d4-1` | Dag 4 · Laguna Churup (foto 1)        | Laguna Churup (heldergroen/turquoise meer)          |                                                                                                |
-| `hua-d4-2` | Dag 4 · Laguna Churup (foto 2)        | Rotsachtig bergpad / boulders Churup                |                                                                                                |
-| `hua-d5-1` | Dag 5 · Huayhuash Trek dag 1 (foto 1) | Hoog Andeslandschap / begin trekroute               |                                                                                                |
-| `hua-d5-2` | Dag 5 · Huayhuash Trek dag 1 (foto 2) | Tentenkamp in de Huayhuash / hoogvlakte             |                                                                                                |
-| `hua-d6-1` | Dag 6 · Huayhuash Trek dag 2 (foto 1) | Gletsjermeer Jahuacocha of Mitucocha                |                                                                                                |
-| `hua-d6-2` | Dag 6 · Huayhuash Trek dag 2 (foto 2) | Bergspiegelreflectie in meer / sneeuwtoppen         |                                                                                                |
-| `hua-d7-1` | Dag 7 · Huayhuash Trek dag 3 (foto 1) | Rustdag bij meer / kampvuur of uitzicht             |                                                                                                |
-| `hua-d7-2` | Dag 7 · Huayhuash Trek dag 3 (foto 2) | Sterrenhemel boven bergkamp (optioneel)             |                                                                                                |
-| `hua-d8-1` | Dag 8 · Huayhuash Trek dag 4 (foto 1) | Afdaling richting Llamac / Huaraz                   |                                                                                                |
-| `hua-d9-1` | Dag 9 · Vlucht Huaraz → Lima (foto 1) | Vliegtuig / vertrekhal of luchtfoto Andes           |                                                                                                |
+| ID         | Sectie                                | Wat is er nodig                                     | Jouw foto     |
+| ---------- | ------------------------------------- | --------------------------------------------------- | ------------- |
+| `hua-hero` | Hero achtergrond                      | Cordillera Huayhuash of Cordillera Blanca panorama  | huayhuash.jpg |
+| `hua-d1-1` | Dag 1 · Aankomst Lima (foto 1)        | Lima kust / Miraflores wijk / kliffen               | lima.jpg      |
+| `hua-d1-2` | Dag 1 · Aankomst Lima (foto 2)        | Lima stadsgezicht of Parque Kennedy                 | lima2.jpg     |
+| `hua-d2-1` | Dag 2 · Bus Lima → Huaraz (foto 1)    | Andeslandschap vanuit busraam / snelweg door bergen |               |
+| `hua-d2-2` | Dag 2 · Bus Lima → Huaraz (foto 2)    | Cordillera Blanca toppen met sneeuw                 |               |
+| `hua-d3-1` | Dag 3 · Laguna Wilcacocha (foto 1)    | Turquoise bergmeer met bergtoppen op achtergrond    |               |
+| `hua-d3-2` | Dag 3 · Laguna Wilcacocha (foto 2)    | Uitzicht over vallei / wandelpad                    |               |
+| `hua-d4-1` | Dag 4 · Laguna Churup (foto 1)        | Laguna Churup (heldergroen/turquoise meer)          |               |
+| `hua-d4-2` | Dag 4 · Laguna Churup (foto 2)        | Rotsachtig bergpad / boulders Churup                |               |
+| `hua-d5-1` | Dag 5 · Huayhuash Trek dag 1 (foto 1) | Hoog Andeslandschap / begin trekroute               |               |
+| `hua-d5-2` | Dag 5 · Huayhuash Trek dag 1 (foto 2) | Tentenkamp in de Huayhuash / hoogvlakte             |               |
+| `hua-d6-1` | Dag 6 · Huayhuash Trek dag 2 (foto 1) | Gletsjermeer Jahuacocha of Mitucocha                |               |
+| `hua-d6-2` | Dag 6 · Huayhuash Trek dag 2 (foto 2) | Bergspiegelreflectie in meer / sneeuwtoppen         |               |
+| `hua-d7-1` | Dag 7 · Huayhuash Trek dag 3 (foto 1) | Rustdag bij meer / kampvuur of uitzicht             |               |
+| `hua-d7-2` | Dag 7 · Huayhuash Trek dag 3 (foto 2) | Sterrenhemel boven bergkamp (optioneel)             |               |
+| `hua-d8-1` | Dag 8 · Huayhuash Trek dag 4 (foto 1) | Afdaling richting Llamac / Huaraz                   |               |
+| `hua-d9-1` | Dag 9 · Vlucht Huaraz → Lima (foto 1) | Vliegtuig / vertrekhal of luchtfoto Andes           |               |
 
 ---
 
